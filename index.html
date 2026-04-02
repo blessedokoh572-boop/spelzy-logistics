@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SPELZY LOGISTICS</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Spelzy Logistics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="navbar">
+<header>
   <div class="logo">SPELZY</div>
   <nav>
     <a href="#">Track</a>
@@ -18,16 +18,16 @@
 </header>
 
 <section class="hero">
-  <h1>Fast & Reliable Logistics Solutions</h1>
-  <p>Track your shipments in real time worldwide.</p>
+  <h1>Fast & Reliable Logistics</h1>
+  <p>Track your shipments in real time, anywhere in the world.</p>
 
   <div class="track-box">
-    <input id="trackingInput" placeholder="Enter Tracking Number"/>
-    <button onclick="trackPackage()">Track</button>
+    <input type="text" id="trackingInput" placeholder="Enter tracking number">
+    <button onclick="track()">Track</button>
   </div>
 </section>
 
-<section id="result" class="result"></section>
+<section id="result"></section>
 
 <footer>
   <p>© 2026 SPELZY LOGISTICS</p>

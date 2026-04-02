@@ -1,76 +1,90 @@
-body {
+* {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0f172a;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0a0f1c;
   color: white;
 }
 
-/* Navbar */
-.navbar {
+/* HEADER */
+header {
   display: flex;
   justify-content: space-between;
-  padding: 20px 60px;
-  background: #020617;
+  padding: 20px 40px;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
 }
 
 .logo {
   font-weight: bold;
   font-size: 20px;
-  color: #38bdf8;
 }
 
 nav a {
   margin-left: 20px;
+  color: #aaa;
   text-decoration: none;
-  color: #cbd5f5;
 }
 
-/* Hero */
+nav a:hover {
+  color: white;
+}
+
+/* HERO */
 .hero {
   text-align: center;
   padding: 100px 20px;
 }
 
 .hero h1 {
-  font-size: 42px;
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
 .hero p {
-  color: #94a3b8;
+  color: #aaa;
+  margin-bottom: 30px;
 }
 
-/* Tracking Box */
+/* TRACK BOX */
 .track-box {
-  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .track-box input {
   padding: 15px;
-  width: 280px;
+  width: 250px;
   border: none;
-  border-radius: 6px;
+  border-radius: 6px 0 0 6px;
 }
 
 .track-box button {
-  padding: 15px 20px;
-  margin-left: 10px;
-  background: #38bdf8;
+  padding: 15px 25px;
   border: none;
-  color: black;
-  border-radius: 6px;
+  background: #635bff;
+  color: white;
+  border-radius: 0 6px 6px 0;
   cursor: pointer;
 }
 
-/* Result Card */
-.result {
+.track-box button:hover {
+  background: #4a42e8;
+}
+
+/* RESULT */
+#result {
   margin-top: 40px;
   text-align: center;
 }
 
-.card {
-  display: inline-block;
-  background: #020617;
-  padding: 25px;
-  border-radius: 10px;
-  border: 1px solid #1e293b;
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #777;
 }

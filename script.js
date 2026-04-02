@@ -1,21 +1,18 @@
-async function trackPackage() {
-  const trackingNumber = document.getElementById("trackingInput").value;
+function track() {
+  const input = document.getElementById("trackingInput").value;
+  const result = document.getElementById("result");
 
-  const res = await fetch("/api/track", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ trackingNumber })
-  });
+  if (!input) {
+    result.innerHTML = "<p>Please enter a tracking number</p>";
+    return;
+  }
 
-  const data = await res.json();
-
-  document.getElementById("result").innerHTML = `
-    <div class="card">
-      <h2>${data.status}</h2>
-      <p><strong>Location:</strong> ${data.location}</p>
-      <p><strong>ETA:</strong> ${data.estimatedDelivery}</p>
+  result.innerHTML = `
+    <div style="margin-top:20px;">
+      <h3>Tracking Number: ${input}</h3>
+      <p>Status: In Transit</p>
+      <p>Location: Lagos, Nigeria</p>
+      <p>Estimated Delivery: 3-5 days</p>
     </div>
   `;
 }

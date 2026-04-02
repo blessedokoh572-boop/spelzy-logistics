@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Spelzy Logistics</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spelzy Logistics</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="particles"></div>
-
 <header>
-  <div class="logo">SPELZY</div>
+  <h1>Spelzy Logistics</h1>
   <nav>
-    <a href="#">Track</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#track">Track</a>
+    <a href="#book">Book</a>
   </nav>
 </header>
 
 <section class="hero">
-  <h1>Next-Gen Logistics</h1>
-  <p>Fast. Smart. Reliable delivery powered by technology.</p>
+  <h2>Fast. Secure. Global Delivery.</h2>
+  <p>Delivering your packages worldwide with speed and precision.</p>
 
   <div class="track-box">
-    <input type="text" id="trackingInput" placeholder="Enter tracking number">
-    <button onclick="track()">Track</button>
+    <input type="text" id="trackingInput" placeholder="Enter Tracking Number">
+    <button onclick="trackPackage()">Track</button>
   </div>
 </section>
 
-<section id="result"></section>
+<section id="services" class="services">
+  <h2>Our Services</h2>
+  <div class="grid">
+    <div> Express Delivery</div>
+    <div> International Shipping</div>
+    <div> Warehousing</div>
+    <div> Freight Services</div>
+  </div>
+</section>
+
+<section id="track" class="tracking">
+  <h2>Tracking Result</h2>
+  <div id="result"></div>
+</section>
+
+<section id="book" class="booking">
+  <h2>Book Shipment</h2>
+  <form id="form">
+    <input type="text" placeholder="Sender Name" required>
+    <input type="text" placeholder="Receiver Name" required>
+    <input type="text" placeholder="Destination" required>
+    <button type="submit">Submit</button>
+  </form>
+</section>
 
 <footer>
-  <p>© 2026 SPELZY LOGISTICS</p>
+  <p>© 2026 Spelzy Logistics</p>
 </footer>
 
 <script src="script.js"></script>

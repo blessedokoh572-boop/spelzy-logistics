@@ -1,4 +1,4 @@
-function track() {
+async function track() {
   const input = document.getElementById("trackingInput").value;
   const result = document.getElementById("result");
 
@@ -7,24 +7,39 @@ function track() {
     return;
   }
 
-  // Show loading spinner
   result.innerHTML = `
     <div class="loader"></div>
-    <p style="margin-top:10px;">Tracking shipment...</p>
+    <p>Tracking shipment...</p>
   `;
 
-  // Fake delay (like real API)
-  setTimeout(() => {
+  try {
+    const res = await fetch(`/api/track?tracking=${input}`);
+    const data = await res.json();
+
+    if (data.error) {
+      result.innerHTML = `<p>${data.error}</p>`;
+      return;
+    }
+
+    let stepsHTML = "";
+
+    data.steps.forEach((step, index) => {
+      let className = "step";
+      if (index < data.steps.length - 1) className += " done";
+      if (index === data.steps.length - 1) className += " active";
+
+      stepsHTML += `<div class="${className}">${step}</div>`;
+    });
+
     result.innerHTML = `
       <div class="card">
-        <h3>Tracking: ${input}</h3>
-        <div class="timeline">
-          <div class="step done">✔ Package received</div>
-          <div class="step done">✔ In transit</div>
-          <div class="step active"> Arrived in Lagos</div>
-          <div class="step"> Out for delivery</div>
-        </div>
+        <h3>${input}</h3>
+        <p>Status: ${data.status}</p>
+        <p>Location: ${data.location}</p>
+        <div class="timeline">${stepsHTML}</div>
       </div>
     `;
-  }, 2000);
+  } catch (err) {
+    result.innerHTML = "<p>Error connecting to server</p>";
+  }
 }

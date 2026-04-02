@@ -7,12 +7,24 @@ function track() {
     return;
   }
 
+  // Show loading spinner
   result.innerHTML = `
-    <div style="margin-top:20px;">
-      <h3>Tracking Number: ${input}</h3>
-      <p>Status: In Transit</p>
-      <p>Location: Lagos, Nigeria</p>
-      <p>Estimated Delivery: 3-5 days</p>
-    </div>
+    <div class="loader"></div>
+    <p style="margin-top:10px;">Tracking shipment...</p>
   `;
+
+  // Fake delay (like real API)
+  setTimeout(() => {
+    result.innerHTML = `
+      <div class="card">
+        <h3>Tracking: ${input}</h3>
+        <div class="timeline">
+          <div class="step done">✔ Package received</div>
+          <div class="step done">✔ In transit</div>
+          <div class="step active"> Arrived in Lagos</div>
+          <div class="step"> Out for delivery</div>
+        </div>
+      </div>
+    `;
+  }, 2000);
 }
